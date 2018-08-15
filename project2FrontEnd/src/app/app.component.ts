@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'project2FrontEnd';
+  getTests() {
+    console.log("we in methods now");
+  }
 }
