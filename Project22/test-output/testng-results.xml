@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="5" passed="5">
+  <reporter-output>
+  </reporter-output>
+  <suite name="SuiteToRunTests" duration-ms="18846" started-at="2018-08-16T16:47:16Z" finished-at="2018-08-16T16:47:34Z">
+    <groups>
+    </groups>
+    <test name="All Tests" duration-ms="18846" started-at="2018-08-16T16:47:16Z" finished-at="2018-08-16T16:47:34Z">
+      <class name="com.revature.pom.Driver2">
+        <test-method status="PASS" signature="verifyValidLogin()[pri:0, instance:com.revature.pom.Driver2@475530b9]" name="verifyValidLogin" duration-ms="6325" started-at="2018-08-16T16:47:16Z" finished-at="2018-08-16T16:47:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyValidLogin -->
+        <test-method status="PASS" signature="verifyBatchesPage()[pri:1, instance:com.revature.pom.Driver2@475530b9]" name="verifyBatchesPage" duration-ms="5472" started-at="2018-08-16T16:47:22Z" finished-at="2018-08-16T16:47:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBatchesPage -->
+        <test-method status="PASS" signature="verifyLocationsPage()[pri:2, instance:com.revature.pom.Driver2@475530b9]" name="verifyLocationsPage" duration-ms="3064" started-at="2018-08-16T16:47:27Z" finished-at="2018-08-16T16:47:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLocationsPage -->
+        <test-method status="PASS" signature="verifyCurriculaPage()[pri:3, instance:com.revature.pom.Driver2@475530b9]" name="verifyCurriculaPage" duration-ms="635" started-at="2018-08-16T16:47:31Z" finished-at="2018-08-16T16:47:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCurriculaPage -->
+        <test-method status="PASS" signature="logout()[pri:7, instance:com.revature.pom.Driver2@475530b9]" name="logout" duration-ms="3302" started-at="2018-08-16T16:47:31Z" finished-at="2018-08-16T16:47:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+      </class> <!-- com.revature.pom.Driver2 -->
+    </test> <!-- All Tests -->
+  </suite> <!-- SuiteToRunTests -->
+</testng-results>
