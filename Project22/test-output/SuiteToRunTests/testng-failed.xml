@@ -5,7 +5,7 @@
     <classes>
       <class name="com.revature.pom.Driver2">
         <methods>
-          <include name="verifyValidLogin"/>
+          <include name="verifyBatchesPage"/>
         </methods>
       </class> <!-- com.revature.pom.Driver2 -->
     </classes>
