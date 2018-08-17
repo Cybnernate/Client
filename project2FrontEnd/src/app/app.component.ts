@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Appser, AppService} from './app.service';
+
 
 
 @Component({
@@ -7,8 +9,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'project2FrontEnd';
+  appser: Appser;
+  constructor(private appService: AppService) {}
   getTests() {
-    console.log("we in methods now");
+    return this.appService.getTestResults().subscribe((data: Appser) => this.appser = {
+        backEndUrl: data['backEndUrl']
+    });
   }
 }
