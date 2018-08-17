@@ -142,6 +142,11 @@ public void verifyBatchesPage() {
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[5]/button[2]")));
 		wd.findElement(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[5]/button[2]")).click();
 		System.out.println("cancel");
+		
+		//clicks submit button
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id="cdk-accordion-child-3"]/div/form/div[5]/button[1]")));
+//		wd.findElement(By.xpath("//*[@id="cdk-accordion-child-3"]/div/form/div[5]/button[1]"));
+//		System.out.println("submit button");
 	}
 }
 
