@@ -5,8 +5,11 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class Driver2 {
@@ -17,7 +20,7 @@ public class Driver2 {
 		File chrome = new File("src/main/resources/chromedriver.exe");
 		System.setProperty("webdriver.chrome.driver", chrome.getAbsolutePath());
 		wd = new ChromeDriver();
-		wd.get("https://assignforce-client.cfapps.io/login");
+		wd.get("https://assignforce-client.cfapps.io");
 	}
 	
 //	@Test (priority = 7)
@@ -33,78 +36,117 @@ public class Driver2 {
 	@Test (priority = 0)
 	public void verifyValidLogin() {
 		launchApplication();
-		LoginPage.user(wd).sendKeys("svp@revature.com");
-		LoginPage.pass(wd).sendKeys("p@$$w0rd");
-		LoginPage.submit(wd).click();
+		WebElement element = wd.findElement(By.xpath("//*[@id=\"auth0-lock-container-1\"]/div/div[2]/form/div"));
+		if(element.isDisplayed()) {
+			LoginPage.user(wd).sendKeys("svp@revature.com");
+			LoginPage.pass(wd).sendKeys("p@$$w0rd");
+			LoginPage.submit(wd).click();
+		}
 	}
 	
 	@Test (priority = 1)
-	public void verifyBatchesPage() {
+public void verifyBatchesPage() {
 		
 		Actions actions = new Actions(wd);
 		//clicks batches column
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-tab-label-0-1\"]"))).click().perform();
+		wd.findElement(By.xpath("//*[@id=\"mat-tab-label-0-1\"]")).click();
 		System.out.println("batches");
 		
 		//clicks ciriculum drop down
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-select-3\"]"))).click().perform();
+		WebDriverWait wait = new WebDriverWait(wd, 55); 
+		
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"mat-select-3\"]")));
+		wd.findElement(By.xpath("//*[@id=\"mat-select-3\"]")).click();
 		System.out.println("ciric");
 		
 		//clicks .NET option
-		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-option-8\"]"))).click().perform();
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("mat-option-0")));
+		//wd.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
+		wd.findElement(By.id("mat-option-0")).click();
 		System.out.println(".NET");
 		
 		//clicks start date pop up
-		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[2]/mat-form-field[1]/div/div[1]/div[1]/mat-datepicker-toggle/button"))).click().perform();
+//		wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[2]/mat-form-field[1]/div/div[1]/div[1]/mat-datepicker-toggle/button")));
+		wd.findElement(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[2]/mat-form-field[1]/div/div[1]/div[1]/mat-datepicker-toggle/button")).click();
+		//wd.findElement(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[2]/mat-form-field[1]/div/div[1]/div[1]/mat-datepicker-toggle/button")).click();
 		System.out.println("calendar");
-		
-		//clicks august 16th box
-		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-datepicker-2\"]/div[2]/mat-month-view/table/tbody/tr[3]/td[5]/div"))).click().perform();
+	
+		//clicks august 28th box
+//		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"mat-datepicker-2\"]/div[2]/mat-month-view/table/tbody/tr[5]/td[3]/div")));
+		wd.findElement(By.xpath("//*[@id=\"mat-datepicker-2\"]/div[2]/mat-month-view/table/tbody/tr[5]/td[3]/div")).click();
 		
 		//clicks the trainer
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-select-5\"]/div/div[2]/div"))).click().perform();
+//		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[3]/mat-form-field[1]")));
+		wd.findElement(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[3]/mat-form-field[1]")).click();
 		System.out.println("trainer");
 		
 		//clicks on william
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-option-173\"]"))).click().perform();
+//		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("mat-option-173")));
+		wd.findElement(By.id("mat-option-173")).click();
 		System.out.println("william");
 	
 		//clicks on co trainer
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-select-6\"]/div/div[2]"))).click().perform();
+//		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("mat-select-6")));
+		wd.findElement(By.id("mat-select-6")).click();
 		System.out.println("cotrainer");
 		
 		//clicks on august
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-option-24\"]"))).click().perform();
+//		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("mat-option-25")));
+		wd.findElement(By.id("mat-option-25")).click();
 		System.out.println("august");
 		
 		//clicks on location
-		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[4]/mat-form-field[1]"))).click().perform();
+//		wd.manage().timeouts().implicitlyWait(17, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"mat-select-7\"]")));
+		wd.findElement(By.xpath("//*[@id=\"mat-select-7\"]")).click();
 		System.out.println("location");
-		
+
 		//clicks on HQ
-		actions.moveToElement(wd.findElement(By.id("mat-option-16"))).click().perform();
+//		wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"mat-option-48\"]")));
+		wd.findElement(By.xpath("//*[@id=\"mat-option-48\"]")).click();
 		System.out.println("HQ");
 		
 		//clicks on building
-//		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-select-29\"]/div/div[2]"))).click().perform();
-//		System.out.println("building");
+		wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+//		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\\\"mat-select-8\\\"]/div/div[2]/div")));
+		wd.findElement(By.xpath("//*[@id=\"mat-select-8\"]/div/div[2]/div")).click();
+		System.out.println("building");
 		
 		//clicks on building number
-		//actions.moveToElement(wd.findElement(By.xpath(xpathExpression))).click().perform();
-		//System.out.println("building number");
+//		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\\\"mat-option-196\\\"]")));
+		wd.findElement(By.xpath("//*[@id=\"mat-option-196\"]")).click();
+		System.out.println("building number");
+		
 		
 		//clicks on room
-		//actions.moveToElement(wd.findElement(By.xpath(xpathExpression))).click().perform();
-		//System.out.println("room");
+//		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"mat-option-196\"]")));
+		wd.findElement(By.xpath("//*[@id=\"mat-option-196\"]")).click();
+		System.out.println("room");
 		
 		//clicks on room number
-		//actions.moveToElement(wd.findElement(By.xpath(xpathExpression))).click().perform();
-		//System.out.println("room number");
+//		wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);)
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"mat-option-56\"]")));
+		wd.findElement(By.xpath("//*[@id=\"mat-option-56\"]")).click();
+		System.out.println("room number");
+		
+		//clicks cancel button
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[5]/button[2]")));
+		wd.findElement(By.xpath("//*[@id=\"cdk-accordion-child-3\"]/div/form/div[5]/button[2]")).click();
+		System.out.println("cancel");
 	}
-	
+}
+
+
+
 //	@Test (priority = 2)
 //	public void verifyLocationsPage () {
 //		Actions actions = new Actions(wd);
@@ -116,16 +158,3 @@ public class Driver2 {
 //		Actions actions = new Actions(wd);
 //		actions.moveToElement(wd.findElement(By.xpath("//*[@id=\"mat-tab-label-0-3\"]"))).click().perform();
 //	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
