@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name = "SuiteToRunTests" parallel = "false">
-	<test name = "All Tests" >
-		<classes>
-			<class name = "com.revature.pom.Driver2"></class>
-		</classes>
-	</test>
-</suite>
