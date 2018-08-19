@@ -15,6 +15,6 @@ export class AppComponent {
     let respText =  this.appService.getTestResults()
     console.log(respText);
     //.subscribe((data: Appser) => this.appser = {backEndUrl: data['backEndUrl']});
-    document.getElementById("insertTestHere").innerHTML = respText;
+    document.getElementById("insertTestHere").innerHTML = respText[0];
   }
 }
