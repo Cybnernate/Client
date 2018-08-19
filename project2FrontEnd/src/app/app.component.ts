@@ -14,6 +14,7 @@ export class AppComponent {
   constructor(private appService: AppService) {}
   getTests() {
     let respText =  this.appService.getTestResults().subscribe(data => {this.respHtml = data});
+    respText =  this.appService.getTestResults().subscribe(data => {this.respHtml = data});
     document.getElementById("insertTestHere").innerHTML = this.respHtml;
   }
 }
