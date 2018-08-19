@@ -12,8 +12,9 @@ export class AppComponent {
   appser: Appser;
   constructor(private appService: AppService) {}
   getTests() {
-    return this.appService.getTestResults().subscribe((data: Appser) => this.appser = {
-        backEndUrl: data['backEndUrl']
-    });
+    let respText =  this.appService.getTestResults()
+    console.log(respText);
+    //.subscribe((data: Appser) => this.appser = {backEndUrl: data['backEndUrl']});
+    document.getElementById("insertTestHere").innerHTML = respText;
   }
 }
