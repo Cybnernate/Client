@@ -10,11 +10,10 @@ import { Appser, AppService} from './app.service';
 })
 export class AppComponent {
   appser: Appser;
+  respHtml: string;
   constructor(private appService: AppService) {}
   getTests() {
-    let respText =  this.appService.getTestResults()
-    console.log(respText);
-    //.subscribe((data: Appser) => this.appser = {backEndUrl: data['backEndUrl']});
-    document.getElementById("insertTestHere").innerHTML = respText[0];
+    let respText =  this.appService.getTestResults().subscribe(data => {this.respHtml = data});
+    document.getElementById("insertTestHere").innerHTML = this.respHtml;
   }
 }
