@@ -19,6 +19,6 @@ export class AppComponent {
     });
     //let theFile = new File([this.respHtml], "tests.json", {type: "text/plain;charset=utf-8"});
     //saveAs(theFile);
-    document.getElementById("insertTestHere").innerHTML = "{{theData | json}}";
+    //document.getElementById("insertTestHere").innerHTML = "{{theData | json}}";
   }
 }
