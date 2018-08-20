@@ -11,7 +11,7 @@ import { saveAs } from 'file-saver/FileSaver';
 })
 export class AppComponent {
   appser: Appser;
-  respHtml: string;
+  respHtml;
   constructor(private appService: AppService) {}
   getTests() {
     let respText =  this.appService.getTestResults().subscribe(data => {this.respHtml = data});
