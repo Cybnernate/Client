@@ -15,6 +15,7 @@ export class AppComponent {
   constructor(private appService: AppService) {}
   getTests() {
     let respText =  this.appService.getTestResults().subscribe((resp: any) => {
+      console.log(resp.data);
       this.theData = resp.data;
     });
     //let theFile = new File([this.respHtml], "tests.json", {type: "text/plain;charset=utf-8"});
