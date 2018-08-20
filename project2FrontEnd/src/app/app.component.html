@@ -7,6 +7,6 @@
 <div>
   <button (click)="getTests()">Click Me!</button>
 </div>
-<div id="insertTestHere">
- {{theData | json}}
+<div *ngFor="let d of myData">
+    {{d}}
 </div>
