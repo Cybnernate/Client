@@ -11,12 +11,11 @@ import { Appser, AppService} from './app.service';
 })
 export class AppComponent {
   appser: Appser;
-  theData: any[] = [];
+  //theData: any[] = [];
   constructor(private appService: AppService) {}
   getTests() {
-    let respText =  this.appService.getTestResults().subscribe((resp: any) => {
-      console.log(resp.data);
-      this.theData = resp.data;
+    let respText =  this.appService.getTestResults().subscribe( data => {
+      console.log(data);
     });
     //let theFile = new File([this.respHtml], "tests.json", {type: "text/plain;charset=utf-8"});
     //saveAs(theFile);
