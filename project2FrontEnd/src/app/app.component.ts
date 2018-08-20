@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Appser, AppService} from './app.service';
+import { saveAs } from 'file-saver/FileSaver';
 
 
 
@@ -14,6 +15,8 @@ export class AppComponent {
   constructor(private appService: AppService) {}
   getTests() {
     let respText =  this.appService.getTestResults().subscribe(data => {this.respHtml = data});
+    let theFile = new File([this.respHtml], "tests.json", {type: "text/plain;charset=utf-8"});
+    saveAs(theFile);
     document.getElementById("insertTestHere").innerHTML = this.respHtml;
   }
 }
