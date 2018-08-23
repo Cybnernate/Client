@@ -1,12 +1,35 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Project 2 by Cybernate
-  </h1>
-</div>
-<div>
-  <button (click)="getTests()">Click Me!</button>
-</div>
-<div *ngFor="let d of myData">
-    {{d}}
+<div style="padding: 3%">
+  <div style="float:left">
+    <div style="text-align:left">
+
+      <img src="assets/revature-logo.png" width="20%"/>
+      <h1>
+        Test Automator by Cybernate
+      </h1>
+    
+      <p> by Paul Cappelan, Brian Maguire, Jacob Golding, and Henry Simon</p>
+    </div>
+
+    <div>
+     
+      <div>
+        <p style= "text-align: left">
+          Test Automator provides on-demand functionality testing and feedback reports for Revature's Assignforce application. <br />
+          Because of Test Automator's modular architecture, developers can easily modify it to test any existent web application. <br />
+          <br />
+          The technologies used in this project include: <br />
+          Angular v6, Java MVC, TestNG, Cucumber, Gherkin, Selenium, Apache Maven, Node.js, Protractor, Jasmine, Karma, Jenkins, <br />
+          Apache Tomcat, AWS EC2 + RDS, Oracle, and Git/Github.
+        </p>
+      </div>
+    </div>
+
+    <div style="text-align:left">
+      <button (click)="getTests()">Run Tests</button>
+    </div>
+    <div style = "text-align:left" *ngFor="let d of myData">
+        {{d}}
+    </div>
+  </div>
 </div>
