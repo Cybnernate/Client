@@ -12,11 +12,12 @@ import { Appser, AppService} from './app.service';
 export class AppComponent {
   constructor(private appService: AppService) {}
   getTests() {
-    let info = "";
+    var info = "";
     let respText =  this.appService.getTestResults().subscribe( data => {
       console.log(data);
       info = data;
     });
+    console.log(info);
     document.getElementById("insert").innerHTML = info;
   }
 }
