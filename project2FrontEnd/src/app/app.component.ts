@@ -10,15 +10,13 @@ import { Appser, AppService} from './app.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  appser: Appser;
-  //theData: any[] = [];
   constructor(private appService: AppService) {}
   getTests() {
+    let info = "";
     let respText =  this.appService.getTestResults().subscribe( data => {
       console.log(data);
+      info = data;
     });
-    //let theFile = new File([this.respHtml], "tests.json", {type: "text/plain;charset=utf-8"});
-    //saveAs(theFile);
-    //document.getElementById("insertTestHere").innerHTML = "{{theData | json}}";
+    document.getElementById("insert").innerHTML = info;
   }
 }
